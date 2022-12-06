@@ -139,7 +139,7 @@ class Main {
     static void staffTable() {
         JFrame frame = new JFrame("Staff Table");
         frame.setSize(500,500);
-        frame.setLayout(new GridLayout(5,2)); //hard-coded but can change
+        frame.setLayout(new GridLayout(5,4)); //hard-coded but can change
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -158,10 +158,10 @@ class Main {
         frame.setVisible(true);
         headerLabel.setText("Staff of Current Staff working at Touch of Joyy");
 
-        String[] columnNames = {"Name", "Last"};
+        String[] columnNames = {"First Name", "Last Name", "Phone Number", "StaffNo"};
         Object[][] data = {
-                {"Joyce", "Olaniyi"},
-                {"Worker", "#2"}
+                {"Joyce", "Olaniyi", "000-000-0000", 1},
+                {"Worker", "#2", "000-000-0000", 2}
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
@@ -178,16 +178,15 @@ class Main {
     }
 
     static void clientTable() {
-        JFrame frame = new JFrame("Staff Table");
+        JFrame frame = new JFrame("Client Table");
         frame.setSize(500,500);
-        frame.setLayout(new GridLayout(5,2)); //hard-coded but can change
+        frame.setLayout(new GridLayout(10,4)); //hard-coded but can change
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JButton back = new JButton("Back");
         JLabel headerLabel = new JLabel("", JLabel.CENTER);
         JLabel update = new JLabel("Updated since 12/6/2022.",JLabel.CENTER);
-        update.setSize(350,100);
 
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
@@ -197,17 +196,17 @@ class Main {
         frame.add(update);
 
         frame.setVisible(true);
-        headerLabel.setText("Staff of Current Staff working at Touch of Joyy");
+        headerLabel.setText("Existing Clients at Touch of Joyy");
 
-        String[] columnNames = {"Name", "Last"};
+        String[] columnNames = {"First Name", "Last Name", "Phone Number", "ClientNo"};
         Object[][] data = {
-                {"Joyce", "Olaniyi"},
-                {"Worker", "#2"}
+                {"Sarah", "Doe", "000-000-0000", 1 },
+                {"Amy", "Patrick", "000-000-0000", 2},
+                {"Gold", "Eve", "000-000-0000", 3}
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setSize(300, 300);
-        table.setFillsViewportHeight(true);
+        scrollPane.setSize(300,300); //trying to resize the actual table
         panel.add(scrollPane);
         frame.add(back);
         frame.setVisible(true);
@@ -219,9 +218,9 @@ class Main {
     }
 
     static void appointTable() {
-        JFrame frame = new JFrame("Staff Table");
+        JFrame frame = new JFrame("Appointments");
         frame.setSize(500,500);
-        frame.setLayout(new GridLayout(5,2)); //hard-coded but can change
+        frame.setLayout(new GridLayout(10,4)); //hard-coded but will change
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -238,12 +237,13 @@ class Main {
         frame.add(update);
 
         frame.setVisible(true);
-        headerLabel.setText("Staff of Current Staff working at Touch of Joyy");
+        headerLabel.setText("Current Appointments for Touch of Joyy");
 
-        String[] columnNames = {"Name", "Last"};
+        String[] columnNames = {"Time", "Date", "Service Name", "ID"};
         Object[][] data = {
-                {"Joyce", "Olaniyi"},
-                {"Worker", "#2"}
+                {"08:00am", "12/03/2022", "Soft Glam", "12345"},
+                {"09:00am", "12/12/2022", "Soft Glam", "00000"},
+                {"02:00pm", "1/30/2023", "Soft Glam", "54321"}
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
@@ -260,9 +260,9 @@ class Main {
     }
 
     static void servicesTable() {
-        JFrame frame = new JFrame("Staff Table");
+        JFrame frame = new JFrame("Services");
         frame.setSize(500,500);
-        frame.setLayout(new GridLayout(5,2)); //hard-coded but can change
+        frame.setLayout(new GridLayout(5,3)); //hard-coded but can change
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -279,12 +279,12 @@ class Main {
         frame.add(update);
 
         frame.setVisible(true);
-        headerLabel.setText("Staff of Current Staff working at Touch of Joyy");
+        headerLabel.setText("Services Provided at Touch of Joyy");
 
-        String[] columnNames = {"Name", "Last"};
+        String[] columnNames = {"Products Needed", "Eligible Staff", "Cost"};
         Object[][] data = {
-                {"Joyce", "Olaniyi"},
-                {"Worker", "#2"}
+                {"Eyeliner, lip gloss, etc.", "Joyce", "$50"},
+                {"Add", "other", "services", "here"}
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
@@ -300,9 +300,9 @@ class Main {
         });
     }
     static void reviews() {
-        JFrame frame = new JFrame("Staff Table");
+        JFrame frame = new JFrame("Reviews");
         frame.setSize(500,500);
-        frame.setLayout(new GridLayout(5,2)); //hard-coded but can change
+        frame.setLayout(new GridLayout(10,3)); //hard-coded but can change
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -319,12 +319,12 @@ class Main {
         frame.add(update);
 
         frame.setVisible(true);
-        headerLabel.setText("Staff of Current Staff working at Touch of Joyy");
+        headerLabel.setText("Touch of Joyy Reviews");
 
-        String[] columnNames = {"Name", "Last"};
+        String[] columnNames = {"ID", "Rating", "Comments"};
         Object[][] data = {
-                {"Joyce", "Olaniyi"},
-                {"Worker", "#2"}
+                {"12345", "5/5", "Beautiful! Loved it"},
+                {"0000", "5/5", "No comments."}
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
@@ -341,7 +341,7 @@ class Main {
     }
 
     static void training() {
-        JFrame frame = new JFrame("Staff Table");
+        JFrame frame = new JFrame("Training");
         frame.setSize(500,500);
         frame.setLayout(new GridLayout(5,2)); //hard-coded but can change
         frame.setLocationRelativeTo(null);
@@ -360,12 +360,12 @@ class Main {
         frame.add(update);
 
         frame.setVisible(true);
-        headerLabel.setText("Staff of Current Staff working at Touch of Joyy");
+        headerLabel.setText("For Staff: Complete your Trainings");
 
-        String[] columnNames = {"Name", "Last"};
+        String[] columnNames = {"Staff_ID", "Completion Date"};
         Object[][] data = {
-                {"Joyce", "Olaniyi"},
-                {"Worker", "#2"}
+                {"11111", "12/03/2022"},
+                {"12121", "12/04/2022"}
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
