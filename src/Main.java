@@ -1,36 +1,383 @@
-import java.io.*;
 import javax.swing.*;
+import java.awt.*;
 
 class Main {
     public static void main(String[] args) {
-        JFrame frame = new JFrame();
-        JMenuBar menuBar = new JMenuBar();
-
-
-        JButton button = new JButton("Button");
-        button.setBounds(150, 200, 200, 50);
-
-        frame.add(button);
-        frame.add(menuBar);
-        frame.setJMenuBar(menuBar);
-        frame.setSize(500, 600);
-        frame.setLayout(null);
+        Jframe();
+    }
+    static void Jframe() {
+        //main page: currently only has the login option. trying to add image
+        JFrame frame = new JFrame("Touch of Joyy");
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+        JLabel label = new JLabel("Welcome to Touch of Joyy! Click the button to Login: ");
+        JButton login = new JButton("Login");
+        panel.add(label);
+        panel.add(login);
+        frame.add(panel);
+        frame.setSize(500, 500);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-        menuBar.setVisible(true);
 
-        JMenu menuFile = new JMenu("File");
-        JMenuItem menuItemCreate = new JMenuItem("Create");
-        JMenuItem menuItemEdit = new JMenuItem("Edit");
-        JMenuItem menuItemExit = new JMenuItem("Exit");
-        menuFile.add(menuItemCreate);
-        menuFile.add(menuItemEdit);
-        menuFile.add(menuItemExit);
-        menuBar.add(menuFile);
+        label.setFont(new Font("Monospaced", Font.BOLD, 15));
+        login.setFont(new Font("Monospaced", Font.BOLD, 20));
+
+        ImageIcon icon = new ImageIcon("imgs/toj.jpg"); //trying to create an icon as well
+        frame.add(new JLabel(icon));
+
+        login.addActionListener(e -> {
+            frame.setVisible(false);
+            loginPage();
+        });
+    }
+    static void loginPage() {
+        //users can login here. will add required boxes later and does't validate yet
+        //can go back to the main page or launch
+        JFrame frame = new JFrame("Please Login Here");
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+        JLabel name = new JLabel("Name: ");
+        JLabel email = new JLabel("Email: ");
+        JLabel password = new JLabel("Password: ");
+        JButton launch = new JButton("Launch");
+        JButton back = new JButton("Back");
+        panel.add(name);
+        JTextField nameText = new JTextField("Name");
+        panel.add(nameText);
+        panel.add(email);
+        JTextField emailText = new JTextField("Email");
+        panel.add(emailText);
+        panel.add(password);
+        JTextField passwordText = new JTextField("Password");
+        panel.add(passwordText);
+        panel.add(launch);
+        panel.add(back);
+        frame.add(panel);
+        frame.setSize(500, 500);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+        name.setFont(new Font("Monospaced", Font.PLAIN, 20));
+        email.setFont(new Font("Monospaced", Font.PLAIN, 20));
+        password.setFont(new Font("Monospaced", Font.PLAIN, 20));
+        nameText.setFont(new Font("Monospaced", Font.PLAIN, 20));
+        emailText.setFont(new Font("Monospaced", Font.PLAIN, 20));
+        passwordText.setFont(new Font("Monospaced", Font.PLAIN, 20));
+        launch.setFont(new Font("Monospaced", Font.BOLD, 25));
+        back.setFont(new Font("Monospaced", Font.BOLD, 25));
+
+        launch.addActionListener(e -> {
+            frame.setVisible(false);
+            table();
+        });
+        back.addActionListener(e -> {
+            frame.setVisible(false);
+            Jframe();
+        });
+    }
+    static void table() {
+        JFrame frame = new JFrame("Touch of Joyy");
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(3,2));
+        frame.setSize(500, 500);
+
+        JButton staff = new JButton("View Staff");
+        JButton client = new JButton("View Clients");
+        JButton appoint = new JButton("View Appointments");
+        JButton services = new JButton("View Services");
+        JButton reviews = new JButton("View Services");
+        JButton training = new JButton("View Services");
 
 
+        panel.add(staff);
+        panel.add(client);
+        panel.add(appoint);
+        panel.add(services);
+        panel.add(reviews);
+        panel.add(training);
+        frame.add(panel);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
 
+        staff.setFont(new Font("Monospaced", Font.BOLD, 20));
+        client.setFont(new Font("Monospaced", Font.BOLD, 20));
+        appoint.setFont(new Font("Monospaced", Font.BOLD, 20));
+        services.setFont(new Font("Monospaced", Font.BOLD, 20));
+        reviews.setFont(new Font("Monospaced", Font.BOLD, 20));
+        training.setFont(new Font("Monospaced", Font.BOLD, 20));
 
+        staff.addActionListener(e -> {
+            frame.setVisible(false);
+            staffTable();
+        });
 
+        client.addActionListener(e -> {
+            frame.setVisible(false);
+            clientTable();
+        });
+        appoint.addActionListener(e -> {
+            frame.setVisible(false);
+            appointTable();
+        });
+        services.addActionListener(e -> {
+            frame.setVisible(false);
+            servicesTable();
+        });
+        reviews.addActionListener(e -> {
+            frame.setVisible(false);
+            reviews();
+        });
+        training.addActionListener(e -> {
+            frame.setVisible(false);
+            training();
+        });
 
+    }
+    static void staffTable() {
+        JFrame frame = new JFrame("Staff Table");
+        frame.setSize(500,500);
+        frame.setLayout(new GridLayout(5,2)); //hard-coded but can change
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JButton back = new JButton("Back");
+        JLabel headerLabel = new JLabel("", JLabel.CENTER);
+        JLabel update = new JLabel("Updated since 12/6/2022.",JLabel.CENTER);
+        update.setSize(350,100);
+
+       JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+
+        frame.add(headerLabel);
+        frame.add(panel);
+        frame.add(update);
+
+        frame.setVisible(true);
+        headerLabel.setText("Staff of Current Staff working at Touch of Joyy");
+
+        String[] columnNames = {"Name", "Last"};
+        Object[][] data = {
+                {"Joyce", "Olaniyi"},
+                {"Worker", "#2"}
+        };
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setSize(300, 300);
+        table.setFillsViewportHeight(true);
+        panel.add(scrollPane);
+        frame.add(back);
+        frame.setVisible(true);
+
+        back.addActionListener(e -> {
+            frame.setVisible(false);
+            table();
+        });
+    }
+
+    static void clientTable() {
+        JFrame frame = new JFrame("Staff Table");
+        frame.setSize(500,500);
+        frame.setLayout(new GridLayout(5,2)); //hard-coded but can change
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JButton back = new JButton("Back");
+        JLabel headerLabel = new JLabel("", JLabel.CENTER);
+        JLabel update = new JLabel("Updated since 12/6/2022.",JLabel.CENTER);
+        update.setSize(350,100);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+
+        frame.add(headerLabel);
+        frame.add(panel);
+        frame.add(update);
+
+        frame.setVisible(true);
+        headerLabel.setText("Staff of Current Staff working at Touch of Joyy");
+
+        String[] columnNames = {"Name", "Last"};
+        Object[][] data = {
+                {"Joyce", "Olaniyi"},
+                {"Worker", "#2"}
+        };
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setSize(300, 300);
+        table.setFillsViewportHeight(true);
+        panel.add(scrollPane);
+        frame.add(back);
+        frame.setVisible(true);
+
+        back.addActionListener(e -> {
+            frame.setVisible(false);
+            table();
+        });
+    }
+
+    static void appointTable() {
+        JFrame frame = new JFrame("Staff Table");
+        frame.setSize(500,500);
+        frame.setLayout(new GridLayout(5,2)); //hard-coded but can change
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JButton back = new JButton("Back");
+        JLabel headerLabel = new JLabel("", JLabel.CENTER);
+        JLabel update = new JLabel("Updated since 12/6/2022.",JLabel.CENTER);
+        update.setSize(350,100);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+
+        frame.add(headerLabel);
+        frame.add(panel);
+        frame.add(update);
+
+        frame.setVisible(true);
+        headerLabel.setText("Staff of Current Staff working at Touch of Joyy");
+
+        String[] columnNames = {"Name", "Last"};
+        Object[][] data = {
+                {"Joyce", "Olaniyi"},
+                {"Worker", "#2"}
+        };
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setSize(300, 300);
+        table.setFillsViewportHeight(true);
+        panel.add(scrollPane);
+        frame.add(back);
+        frame.setVisible(true);
+
+        back.addActionListener(e -> {
+            frame.setVisible(false);
+            table();
+        });
+    }
+
+    static void servicesTable() {
+        JFrame frame = new JFrame("Staff Table");
+        frame.setSize(500,500);
+        frame.setLayout(new GridLayout(5,2)); //hard-coded but can change
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JButton back = new JButton("Back");
+        JLabel headerLabel = new JLabel("", JLabel.CENTER);
+        JLabel update = new JLabel("Updated since 12/6/2022.",JLabel.CENTER);
+        update.setSize(350,100);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+
+        frame.add(headerLabel);
+        frame.add(panel);
+        frame.add(update);
+
+        frame.setVisible(true);
+        headerLabel.setText("Staff of Current Staff working at Touch of Joyy");
+
+        String[] columnNames = {"Name", "Last"};
+        Object[][] data = {
+                {"Joyce", "Olaniyi"},
+                {"Worker", "#2"}
+        };
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setSize(300, 300);
+        table.setFillsViewportHeight(true);
+        panel.add(scrollPane);
+        frame.add(back);
+        frame.setVisible(true);
+
+        back.addActionListener(e -> {
+            frame.setVisible(false);
+            table();
+        });
+    }
+    static void reviews() {
+        JFrame frame = new JFrame("Staff Table");
+        frame.setSize(500,500);
+        frame.setLayout(new GridLayout(5,2)); //hard-coded but can change
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JButton back = new JButton("Back");
+        JLabel headerLabel = new JLabel("", JLabel.CENTER);
+        JLabel update = new JLabel("Updated since 12/6/2022.",JLabel.CENTER);
+        update.setSize(350,100);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+
+        frame.add(headerLabel);
+        frame.add(panel);
+        frame.add(update);
+
+        frame.setVisible(true);
+        headerLabel.setText("Staff of Current Staff working at Touch of Joyy");
+
+        String[] columnNames = {"Name", "Last"};
+        Object[][] data = {
+                {"Joyce", "Olaniyi"},
+                {"Worker", "#2"}
+        };
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setSize(300, 300);
+        table.setFillsViewportHeight(true);
+        panel.add(scrollPane);
+        frame.add(back);
+        frame.setVisible(true);
+
+        back.addActionListener(e -> {
+            frame.setVisible(false);
+            table();
+        });
+    }
+
+    static void training() {
+        JFrame frame = new JFrame("Staff Table");
+        frame.setSize(500,500);
+        frame.setLayout(new GridLayout(5,2)); //hard-coded but can change
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JButton back = new JButton("Back");
+        JLabel headerLabel = new JLabel("", JLabel.CENTER);
+        JLabel update = new JLabel("Updated since 12/6/2022.",JLabel.CENTER);
+        update.setSize(350,100);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+
+        frame.add(headerLabel);
+        frame.add(panel);
+        frame.add(update);
+
+        frame.setVisible(true);
+        headerLabel.setText("Staff of Current Staff working at Touch of Joyy");
+
+        String[] columnNames = {"Name", "Last"};
+        Object[][] data = {
+                {"Joyce", "Olaniyi"},
+                {"Worker", "#2"}
+        };
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setSize(300, 300);
+        table.setFillsViewportHeight(true);
+        panel.add(scrollPane);
+        frame.add(back);
+        frame.setVisible(true);
+
+        back.addActionListener(e -> {
+            frame.setVisible(false);
+            table();
+        });
     }
 }
