@@ -87,8 +87,8 @@ class Main {
         JButton client = new JButton("View Clients");
         JButton appoint = new JButton("View Appointments");
         JButton services = new JButton("View Services");
-        JButton reviews = new JButton("View Services");
-        JButton training = new JButton("View Services");
+        JButton reviews = new JButton("View Reviews");
+        JButton training = new JButton("View Trainings");
 
 
         panel.add(staff);
