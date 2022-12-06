@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.TableColumnModel;
 import java.awt.*;
 
 class Main {
@@ -10,8 +12,11 @@ class Main {
         JFrame frame = new JFrame("Touch of Joyy");
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
-        JLabel label = new JLabel("Welcome to Touch of Joyy! Click the button to Login: ");
+        panel.setBorder(new EmptyBorder(150, 10, 10, 10));
+
+        JLabel label = new JLabel("Welcome to Touch of Joyy! Click the button to Login: ", JLabel.CENTER);
         JButton login = new JButton("Login");
+
         panel.add(label);
         panel.add(login);
         frame.add(panel);
@@ -32,24 +37,28 @@ class Main {
         });
     }
     static void loginPage() {
-        //users can login here. will add required boxes later and does't validate yet
+        //users can login here. will add required boxes later and doesn't validate yet
         //can go back to the main page or launch
         JFrame frame = new JFrame("Please Login Here");
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
-        JLabel name = new JLabel("Name: ");
-        JLabel email = new JLabel("Email: ");
+
+        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+        panel.add(Box.createRigidArea(new Dimension(0,50)));
+        panel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+
+
+
+        JLabel email = new JLabel("Username: ");
         JLabel password = new JLabel("Password: ");
         JButton launch = new JButton("Launch");
         JButton back = new JButton("Back");
-        panel.add(name);
-        JTextField nameText = new JTextField("Name");
-        panel.add(nameText);
+
         panel.add(email);
-        JTextField emailText = new JTextField("Email");
+        JTextField emailText = new JTextField();
         panel.add(emailText);
         panel.add(password);
-        JTextField passwordText = new JTextField("Password");
+        JPasswordField passwordText= new JPasswordField("");
         panel.add(passwordText);
         panel.add(launch);
         panel.add(back);
@@ -59,10 +68,8 @@ class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-        name.setFont(new Font("Monospaced", Font.PLAIN, 20));
         email.setFont(new Font("Monospaced", Font.PLAIN, 20));
         password.setFont(new Font("Monospaced", Font.PLAIN, 20));
-        nameText.setFont(new Font("Monospaced", Font.PLAIN, 20));
         emailText.setFont(new Font("Monospaced", Font.PLAIN, 20));
         passwordText.setFont(new Font("Monospaced", Font.PLAIN, 20));
         launch.setFont(new Font("Monospaced", Font.BOLD, 25));
@@ -139,14 +146,13 @@ class Main {
     static void staffTable() {
         JFrame frame = new JFrame("Staff Table");
         frame.setSize(500,500);
-        frame.setLayout(new GridLayout(5,4)); //hard-coded but can change
+        frame.setLayout(new GridLayout(4,2)); //hard-coded but can change
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JButton back = new JButton("Back");
         JLabel headerLabel = new JLabel("", JLabel.CENTER);
         JLabel update = new JLabel("Updated since 12/6/2022.",JLabel.CENTER);
-        update.setSize(350,100);
 
        JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
@@ -165,10 +171,11 @@ class Main {
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setSize(300, 300);
         table.setFillsViewportHeight(true);
+
         panel.add(scrollPane);
         frame.add(back);
+        table.setRowHeight(30);
         frame.setVisible(true);
 
         back.addActionListener(e -> {
@@ -180,7 +187,7 @@ class Main {
     static void clientTable() {
         JFrame frame = new JFrame("Client Table");
         frame.setSize(500,500);
-        frame.setLayout(new GridLayout(10,4)); //hard-coded but can change
+        frame.setLayout(new GridLayout(4,2)); //hard-coded but can change
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -206,9 +213,10 @@ class Main {
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setSize(300,300); //trying to resize the actual table
+        table.setFillsViewportHeight(true);
         panel.add(scrollPane);
         frame.add(back);
+        table.setRowHeight(30);
         frame.setVisible(true);
 
         back.addActionListener(e -> {
@@ -220,7 +228,7 @@ class Main {
     static void appointTable() {
         JFrame frame = new JFrame("Appointments");
         frame.setSize(500,500);
-        frame.setLayout(new GridLayout(10,4)); //hard-coded but will change
+        frame.setLayout(new GridLayout(4,2)); //hard-coded but can change
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -262,7 +270,7 @@ class Main {
     static void servicesTable() {
         JFrame frame = new JFrame("Services");
         frame.setSize(500,500);
-        frame.setLayout(new GridLayout(5,3)); //hard-coded but can change
+        frame.setLayout(new GridLayout(4,2)); //hard-coded but can change
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -302,7 +310,7 @@ class Main {
     static void reviews() {
         JFrame frame = new JFrame("Reviews");
         frame.setSize(500,500);
-        frame.setLayout(new GridLayout(10,3)); //hard-coded but can change
+        frame.setLayout(new GridLayout(4,2)); //hard-coded but can change
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -343,7 +351,7 @@ class Main {
     static void training() {
         JFrame frame = new JFrame("Training");
         frame.setSize(500,500);
-        frame.setLayout(new GridLayout(5,2)); //hard-coded but can change
+        frame.setLayout(new GridLayout(4,2)); //hard-coded but can change
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
