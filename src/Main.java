@@ -63,7 +63,7 @@ class Main {
         panel.add(launch);
         panel.add(back);
         frame.add(panel);
-        frame.setSize(500, 500);
+        frame.setSize(500, 300);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
