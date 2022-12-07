@@ -418,9 +418,11 @@ class Main {
 
         JLabel label = new JLabel("Thank you for checking out Touch of Joyy!", JLabel.CENTER);
         JButton exit = new JButton("Exit");
+        JButton relogin= new JButton("Re-Login");
 
         panel.add(label);
         panel.add(exit);
+        panel.add(relogin);
         frame.add(panel);
         panel.setBackground(Color.pink);
 
@@ -435,7 +437,12 @@ class Main {
 
         exit.addActionListener(e ->
                 frame.setVisible(false));
+        relogin.addActionListener(e -> {
+            frame.setVisible(false);
+            Jframe();
+        });
     }
+
     static void addClient(){
         JFrame frame = new JFrame("Add a New Client");
         JPanel panel = new JPanel();
