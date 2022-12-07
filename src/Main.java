@@ -260,8 +260,8 @@ class Main {
         Object[][] data = {
                 {111111, "12:30","2022-12-22", "Babydoll Soft Glam", 12345},
                 {222222, "13:00", "2022-12-22","Bratzdoll Full Glam", 54321},
-                {123456,"08:00am", "12/03/2022", "Soft Glam", "123456", 12345},
-                {987654,"09:00am", "12/12/2022", "Eyebrows threading", "987654", 67980},
+                {123456,"08:00am", "12/03/2022", "Soft Glam", 12345},
+                {987654,"09:00am", "12/12/2022", "Eyebrows threading", 67980},
                 {543210,"02:00pm", "1/30/2023", "Bridal Makeup", "543210", 54321}
         };
         JTable table = new JTable(data, columnNames);
