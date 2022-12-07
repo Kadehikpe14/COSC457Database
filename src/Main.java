@@ -151,6 +151,7 @@ class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JButton back = new JButton("Back");
+        JButton logout= new JButton("Log Out");
         JLabel headerLabel = new JLabel("", JLabel.CENTER);
         JLabel update = new JLabel("Updated since 12/6/2022.",JLabel.CENTER);
 
