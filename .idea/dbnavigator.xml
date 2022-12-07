@@ -41,7 +41,7 @@
           <url-type value="DATABASE" />
           <host value="triton.towson.edu" />
           <port value="3360" />
-          <database value="mysql" />
+          <database value="sstren2db" />
           <type value="USER_PASSWORD" />
           <user value="sstren2" />
           <deprecated-pwd value="Q09TQypxZjI4dg==" />
