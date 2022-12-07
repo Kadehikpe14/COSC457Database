@@ -167,7 +167,9 @@ class Main {
         String[] columnNames = {"First Name", "Last Name","S_ID", "Phone Number", "StaffNo"};
         Object[][] data = {
                 {"Joyce", "Olaniyi","12345", "000-000-0000", 1},
-                {"Worker", "#2", "00000","000-000-0000", 2}
+                {"Anjita", "Bhandari", "54321","000-000-0000", 2},
+                {"Kadeh", "Ikpe", "67890", "000-000-0000", 3},
+                {"Shane", "Strenne", "01234", "000-000-0000", 4}
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
@@ -249,9 +251,9 @@ class Main {
 
         String[] columnNames = {"Time", "Date", "Service Name", "C_ID", "S_ID"};
         Object[][] data = {
-                {"08:00am", "12/03/2022", "Soft Glam", "12345", "00000",},
-                {"09:00am", "12/12/2022", "Soft Glam", "00000", "00000",},
-                {"02:00pm", "1/30/2023", "Soft Glam", "54321", "00000",}
+                {"08:00am", "12/03/2022", "Soft Glam", "123456", "12345",},
+                {"09:00am", "12/12/2022", "Soft Glam", "987654", "00000",},
+                {"02:00pm", "1/30/2023", "Soft Glam", "54321", "54321",}
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
@@ -332,7 +334,7 @@ class Main {
         String[] columnNames = {"S_ID", "Rating", "Comments", "C_ID"};
         Object[][] data = {
                 {"12345", "5/5", "Beautiful! Loved it", "123456"},
-                {"0000", "5/5", "No comments.","C_ID"}
+                {"67890", "5/5", "No comments.","987654"}
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
@@ -372,8 +374,8 @@ class Main {
 
         String[] columnNames = {"T_name", "Staff_ID", "Completion Date"};
         Object[][] data = {
-                {"Kadeh","11111", "12/03/2022"},
-                {"Name", "12121", "12/04/2022"}
+                {"Kadeh","67890", "12/03/2022"},
+                {"Anjita", "54321", "12/04/2022"}
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
