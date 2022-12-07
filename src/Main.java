@@ -154,7 +154,6 @@ class Main {
         JButton logout= new JButton("Log Out");
         JLabel headerLabel = new JLabel("Staff of Current Staff working at Touch of Joyy", JLabel.CENTER);
 
-
        JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
 
@@ -187,7 +186,6 @@ class Main {
             logout();
         });
     }
-
     static void clientTable() {
         JFrame frame = new JFrame("Client Table");
         frame.setSize(500,500);
@@ -232,7 +230,6 @@ class Main {
             addClient();
         });
     }
-
     static void appointTable() {
         JFrame frame = new JFrame("Appointments");
         frame.setSize(500,500);
@@ -276,7 +273,6 @@ class Main {
             addAppoint();
         });
     }
-
     static void servicesTable() {
         JFrame frame = new JFrame("Services");
         frame.setSize(500,500);
@@ -315,6 +311,10 @@ class Main {
         back.addActionListener(e -> {
             frame.setVisible(false);
             table();
+        });
+        logout.addActionListener(e -> {
+            frame.setVisible(false);
+            logout();
         });
     }
     static void reviews() {
@@ -355,8 +355,11 @@ class Main {
             frame.setVisible(false);
             table();
         });
+        logout.addActionListener(e -> {
+            frame.setVisible(false);
+            logout();
+        });
     }
-
     static void training() {
         JFrame frame = new JFrame("Training");
         frame.setSize(500,500);
@@ -395,6 +398,10 @@ class Main {
         back.addActionListener(e -> {
             frame.setVisible(false);
             table();
+        });
+        logout.addActionListener(e -> {
+            frame.setVisible(false);
+            logout();
         });
     }
     static void logout(){
@@ -467,9 +474,8 @@ class Main {
             table();
         });
     }
-
     static void addAppoint(){
-        JFrame frame = new JFrame("Add a New Client");
+        JFrame frame = new JFrame("Create New Appointment");
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
@@ -527,7 +533,6 @@ class Main {
         JButton services = new JButton("View Services");
         JButton reviews = new JButton("View Reviews");
 
-
         panel.add(staff);
         panel.add(appoint);
         panel.add(services);
@@ -544,19 +549,192 @@ class Main {
 
         staff.addActionListener(e -> {
             frame.setVisible(false);
-            staffTable();
+            guestStaff();
         });
         appoint.addActionListener(e -> {
             frame.setVisible(false);
-            appointTable();
+            guestAppoint();
         });
         services.addActionListener(e -> {
             frame.setVisible(false);
-            servicesTable();
+            guestService();
         });
         reviews.addActionListener(e -> {
             frame.setVisible(false);
-            reviews();
+            guestReview();
+        });
+    }
+    static void guestStaff(){
+        JFrame frame = new JFrame("Staff at Touch of Joyy");
+        frame.setSize(500,500);
+        frame.setLayout(new GridLayout(4,1));
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JButton back = new JButton("Back");
+        JButton logout= new JButton("Log Out");
+        JLabel headerLabel = new JLabel("Staff of Current Staff working at Touch of Joyy", JLabel.CENTER);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+
+        frame.add(headerLabel);
+        frame.add(panel);
+
+        frame.setVisible(true);
+
+        String[] columnNames = {"S_ID","FName", "LName", "Phone", "Staffcol"};
+        Object[][] data = {
+                {12345,"Joyce", "Olaniyi", "4105647890", null},
+                {54321,"John", "Smith", "4104104110", null}
+        };
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        table.setFillsViewportHeight(true);
+
+        panel.add(scrollPane);
+        frame.add(back);
+        frame.add(logout);
+        frame.setVisible(true);
+
+        back.addActionListener(e -> {
+            frame.setVisible(false);
+            guest();
+        });
+        logout.addActionListener(e -> {
+            frame.setVisible(false);
+            logout();
+        });
+    }
+    static void guestAppoint(){
+        JFrame frame = new JFrame("Appointments");
+        frame.setSize(500,500);
+        frame.setLayout(new GridLayout(4,1)); //hard-coded but can change
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JButton back = new JButton("Back");
+        JLabel headerLabel = new JLabel("Current Appointments for Touch of Joyy", JLabel.CENTER);
+        JButton addAppoint = new JButton("Add");
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+
+        frame.add(headerLabel);
+        frame.add(panel);
+
+
+        frame.setVisible(true);
+
+        String[] columnNames = {"C_ID","Time", "Date", "Service_Name", "S_ID"};
+        Object[][] data = {
+                {11111, "12:30","2022-12-22", "Babydoll Soft Glam", 12345},
+                {22222, "13:00", "2022-12-22","Bratzdoll Full Glam", 54321}
+        };
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setSize(300, 300);
+        table.setFillsViewportHeight(true);
+        panel.add(scrollPane);
+        frame.add(back);
+        frame.add(addAppoint);
+        frame.setVisible(true);
+
+        back.addActionListener(e -> {
+            frame.setVisible(false);
+            guest();
+        });
+        addAppoint.addActionListener(e -> {
+            frame.setVisible(false);
+            addAppoint();
+        });
+    }
+    static void guestService(){
+        JFrame frame = new JFrame("Services");
+        frame.setSize(500,500);
+        frame.setLayout(new GridLayout(4,1));
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JButton back = new JButton("Back");
+        JLabel headerLabel = new JLabel("Services Provided at Touch of Joyy", JLabel.CENTER);
+        JButton logout= new JButton("Log Out");
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+
+        frame.add(headerLabel);
+        frame.add(panel);
+
+
+        frame.setVisible(true);
+
+        String[] columnNames = {"ServName","Products Needed", "Eligible_Staff", "Cost"};
+        Object[][] data = {
+                {"Babydoll Soft Glam"," ", "Joyce", 75},
+                {"Bratzdoll Full Glam"," ", "Joyce", 90},
+                {"Marylin Soft Glam"," ", "Joyce", 65}
+        };
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setSize(300, 300);
+        table.setFillsViewportHeight(true);
+        panel.add(scrollPane);
+        frame.add(back);
+        frame.add(logout);
+        frame.setVisible(true);
+
+        back.addActionListener(e -> {
+            frame.setVisible(false);
+            guest();
+        });
+        logout.addActionListener(e -> {
+            frame.setVisible(false);
+            logout();
+        });
+    }
+    static void guestReview(){
+        JFrame frame = new JFrame("Add Review");
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(50,10,100,10));
+
+
+        JLabel name = new JLabel("Name: ");
+        panel.add(name);
+        JTextField fnameText = new JTextField();
+        panel.add(fnameText);
+
+        JLabel rating = new JLabel("Rating(0-100): ");
+        panel.add(rating);
+        JTextField rate = new JTextField();
+        panel.add(rate);
+
+        JLabel comment = new JLabel("Comments: ");
+        panel.add(comment);
+        JTextField comments = new JTextField();
+        panel.add(comments);
+
+        JButton launch = new JButton("Add");
+        panel.add(launch);
+        JButton back = new JButton("Cancel");
+        panel.add(back);
+        frame.add(panel);
+        frame.setSize(500, 500);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        back.setBackground(Color.lightGray);
+
+        launch.addActionListener(e -> {
+            frame.setVisible(false);
+            guest();
+            JOptionPane.showMessageDialog(frame, "Thank you for the feedback!");
+        });
+        back.addActionListener(e -> {
+            frame.setVisible(false);
+            guest();
         });
     }
 }
