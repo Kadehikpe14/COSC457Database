@@ -12,10 +12,12 @@ class Main {
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
         panel.setBorder(new EmptyBorder(150, 10, 10, 10));
+        panel.setBackground(Color.pink);
 
         JLabel label = new JLabel("Welcome to Touch of Joyy! Click the button to Login: ", JLabel.CENTER);
         JButton login = new JButton("Login");
         JButton guest = new JButton("Continue as Guest");
+        guest.setBackground(Color.lightGray);
 
         panel.add(label);
         panel.add(login);
@@ -99,9 +101,9 @@ class Main {
         JButton training = new JButton("View Trainings");
 
         panel.add(staff);
+        panel.add(services);
         panel.add(client);
         panel.add(appoint);
-        panel.add(services);
         panel.add(reviews);
         panel.add(training);
         frame.add(panel);
@@ -153,6 +155,7 @@ class Main {
         JButton back = new JButton("Back");
         JButton logout= new JButton("Log Out");
         JLabel headerLabel = new JLabel("Staff of Current Staff working at Touch of Joyy", JLabel.CENTER);
+        logout.setBackground(Color.lightGray);
 
        JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
@@ -283,6 +286,7 @@ class Main {
         JButton back = new JButton("Back");
         JLabel headerLabel = new JLabel("Services Provided at Touch of Joyy", JLabel.CENTER);
         JButton logout= new JButton("Log Out");
+        logout.setBackground(Color.lightGray);
 
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
@@ -327,6 +331,7 @@ class Main {
         JButton back = new JButton("Back");
         JLabel headerLabel = new JLabel("Touch of Joyy Reviews", JLabel.CENTER);
         JButton logout= new JButton("Log Out");
+        logout.setBackground(Color.lightGray);
 
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
@@ -370,6 +375,7 @@ class Main {
         JButton back = new JButton("Back");
         JLabel headerLabel = new JLabel("For Staff: Complete your Trainings", JLabel.CENTER);
         JButton logout= new JButton("Log Out");
+        logout.setBackground(Color.lightGray);
 
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
@@ -416,6 +422,7 @@ class Main {
         panel.add(label);
         panel.add(exit);
         frame.add(panel);
+        panel.setBackground(Color.pink);
 
         frame.setSize(500, 500);
         frame.setLocationRelativeTo(null);
@@ -426,9 +433,8 @@ class Main {
         exit.setFont(new Font("Monospaced", Font.BOLD, 20));
         exit.setBackground(Color.lightGray);
 
-        exit.addActionListener(e -> {
-            frame.setVisible(false);
-        });
+        exit.addActionListener(e ->
+                frame.setVisible(false));
     }
     static void addClient(){
         JFrame frame = new JFrame("Add a New Client");
@@ -480,8 +486,6 @@ class Main {
         panel.setLayout(new FlowLayout());
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(100,10,800,10));
-//        JOptionPane type = new JOptionPane()
-
 
         JLabel Fname = new JLabel("Name: ");
         panel.add(Fname);
@@ -493,8 +497,9 @@ class Main {
         panel.add(timeText);
         JLabel service = new JLabel("Type of Service: ");
         panel.add(service);
-        JTextField serviceText = new JTextField();
-        panel.add(serviceText);
+        String[] optionsToChoose = {"Babydoll Soft Glam", "Bratzdoll Full Glam", "Marylin Soft Glam"};
+        JComboBox<String> jComboBox = new JComboBox<>(optionsToChoose);
+        panel.add(jComboBox);
         JLabel pay = new JLabel("Pay Type: ");
         panel.add(pay);
         JTextField payText = new JTextField("$");
@@ -522,7 +527,6 @@ class Main {
         });
     }
     static void guest(){
-        //TODO make new guest pages, view only
         JFrame frame = new JFrame("Touch of Joyy");
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(2,2));
@@ -531,7 +535,7 @@ class Main {
         JButton staff = new JButton("Staff");
         JButton appoint = new JButton("Appointments");
         JButton services = new JButton("View Services");
-        JButton reviews = new JButton("View Reviews");
+        JButton reviews = new JButton("Add a Review");
 
         panel.add(staff);
         panel.add(appoint);
@@ -574,6 +578,7 @@ class Main {
         JButton back = new JButton("Back");
         JButton logout= new JButton("Log Out");
         JLabel headerLabel = new JLabel("Staff of Current Staff working at Touch of Joyy", JLabel.CENTER);
+        logout.setBackground(Color.lightGray);
 
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
@@ -646,7 +651,63 @@ class Main {
         });
         addAppoint.addActionListener(e -> {
             frame.setVisible(false);
-            addAppoint();
+            guestAddAppoint();
+        });
+    }
+    static void guestAddAppoint(){
+        JFrame frame = new JFrame("Create New Appointment");
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(100,10,800,10));
+
+        JLabel Fname = new JLabel("Name: ");
+        panel.add(Fname);
+        JTextField fnameText = new JTextField();
+        panel.add(fnameText);
+        JLabel time = new JLabel("Time: ");
+        panel.add(time);
+        JTextField timeText = new JTextField();
+        panel.add(timeText);
+        JLabel service = new JLabel("Type of Service: ");
+        panel.add(service);
+        String[] optionsToChoose = {"Babydoll Soft Glam", "Bratzdoll Full Glam", "Marylin Soft Glam"};
+        JComboBox<String> jComboBox = new JComboBox<>(optionsToChoose);
+        panel.add(jComboBox);
+        JLabel pay = new JLabel("Pay Type: ");
+        panel.add(pay);
+        JTextField payText = new JTextField("$");
+        panel.add(payText);
+
+        JButton back = new JButton("Cancel");
+        JLabel exist = new JLabel("Are you an existing Client: ");
+        panel.add(exist);
+        JRadioButton option1 = new JRadioButton("Yes");
+        JRadioButton option2 = new JRadioButton("No");
+        ButtonGroup group = new ButtonGroup();
+        group.add(option1);
+        group.add(option2);
+        panel.add(option1);
+        panel.add(option2);
+        JButton launch = new JButton("Add");
+        panel.add(launch);
+        panel.add(back);
+        frame.add(panel);
+        frame.setSize(500, 500);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        back.setBackground(Color.lightGray);
+
+
+        launch.addActionListener(e -> {
+            frame.setVisible(false);
+            guest();
+            JOptionPane.showMessageDialog(frame, "Thank you for booking with Touch of Joyy! Your appointment has been scheduled.");
+        });
+        back.addActionListener(e -> {
+            frame.setVisible(false);
+            guest();
         });
     }
     static void guestService(){
@@ -659,6 +720,7 @@ class Main {
         JButton back = new JButton("Back");
         JLabel headerLabel = new JLabel("Services Provided at Touch of Joyy", JLabel.CENTER);
         JButton logout= new JButton("Log Out");
+        logout.setBackground(Color.lightGray);
 
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
