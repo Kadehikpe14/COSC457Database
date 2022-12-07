@@ -166,10 +166,11 @@ class Main {
 
         String[] columnNames = {"First Name", "Last Name","S_ID", "Phone Number", "StaffNo"};
         Object[][] data = {
-                {"Joyce", "Olaniyi","12345", "000-000-0000", 1},
-                {"Anjita", "Bhandari", "54321","000-000-0000", 2},
-                {"Kadeh", "Ikpe", "67890", "000-000-0000", 3},
-                {"Shane", "Strenne", "01234", "000-000-0000", 4}
+                {"Joyce", "Olaniyi","12345", "443-000-0101", 1},
+                {"Anjita", "Bhandari", "54321","443-111-1357", 2},
+                {"Kadeh", "Ikpe", "67890", "443-444-2468", 3},
+                {"Shane", "Strenne", "01234", "443-333-1345", 4},
+                {"Naymar", "Junior", "87654", "443-445-676",6}
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
@@ -209,9 +210,11 @@ class Main {
 
         String[] columnNames = {"First Name", "Last Name", "C_ID", "Phone Number", "ClientNo"};
         Object[][] data = {
-                {"Sarah", "Doe","00000", "000-000-0000", 1 },
-                {"Amy", "Patrick", "00000","000-000-0000", 2},
-                {"Gold", "Eve","00000", "000-000-0000", 3}
+                {"Sarah", "Doe","123456", "667-123-9876", 1 },
+                {"Amy", "Patrick", "987654","667-321-5432", 2},
+                {"Gold", "Eve","543210", "667-213-1367", 3},
+                {"Asmita", "Smith", "876540", "667-090-9115", 4}
+
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
@@ -249,11 +252,11 @@ class Main {
         frame.setVisible(true);
         headerLabel.setText("Current Appointments for Touch of Joyy");
 
-        String[] columnNames = {"Time", "Date", "Service Name", "C_ID", "S_ID"};
+        String[] columnNames = {"Time", "Date", "ServName", "C_ID", "S_ID"};
         Object[][] data = {
                 {"08:00am", "12/03/2022", "Soft Glam", "123456", "12345",},
-                {"09:00am", "12/12/2022", "Soft Glam", "987654", "00000",},
-                {"02:00pm", "1/30/2023", "Soft Glam", "54321", "54321",}
+                {"09:00am", "12/12/2022", "Eyebrows threading", "987654", "67980",},
+                {"02:00pm", "1/30/2023", "Bridal Makeup", "543210", "54321",}
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
@@ -293,8 +296,10 @@ class Main {
 
         String[] columnNames = {"ServName" ,"Products Needed", "Eligible Staff", "Cost"};
         Object[][] data = {
-                {"Makeup", "Eyeliner, lip gloss, etc.", "Joyce", "$50"},
-                {"Name", "Add", "other", "services", "here"}
+                {"Soft Glam", "Eyeliner, lip gloss,foundation etc.", "Joyce", "$50"},
+                {"Bridal Makeup", "foundation,Blush,eyeshadow etc", "Anjita, Joyce, Kadeh", "$100"},
+                {"Threading", "thread", "Kadeh", "$15"},
+                {"Eye makeup", "Eyeshadow, concealer, brushes etc", "Naymar","$40"}
         };
         JTable table = new JTable(data, columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
